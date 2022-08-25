@@ -1,0 +1,6 @@
+plugins {
+    id 'java'
+}
+
+group 'me.thesilverecho'
+version '0.1 Alpha'
