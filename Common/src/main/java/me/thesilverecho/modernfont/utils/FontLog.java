@@ -17,4 +17,8 @@ public class FontLog
 		LOGGER.debug(message);
 	}
 
+	public static void LogError(String s)
+	{
+		LOGGER.error(s);
+	}
 }
