@@ -14,12 +14,22 @@ buildscript {
 }
 
 
-
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'org.spongepowered.mixin'
 
 version = '${minecraft_version}-FORGE'
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+
+mixin {
+    config "modern_font_forge.mixins.json"
+    config "modern_font_common.mixins.json"
+
+}
 
 minecraft {
     mappings channel: 'official', version: minecraft_version
@@ -27,9 +37,10 @@ minecraft {
     runs {
         client {
             workingDirectory file('../run')
+            ideaModule "${rootProject.name}.${project.name}.main"
+            property 'fml.earlyprogresswindow', 'false'
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-
             mods {
                 modernfont {
                     source sourceSets.main

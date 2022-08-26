@@ -1,0 +1,13 @@
+modLoader = "javafml"
+loaderVersion = "[39,)"
+license = "MIT"
+
+[[mods]]
+modId = "modernfont"
+version = "${file.jarVersion}"
+displayName = "Modern Font"
+
+[[dependencies.modernfont]]
+modId = "forge"
+mandatory = true
+versionRange = "[40.1.68,)"
