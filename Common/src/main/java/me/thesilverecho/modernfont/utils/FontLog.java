@@ -12,6 +12,12 @@ public class FontLog
 		LOGGER.info(message);
 	}
 
+	public static void LogMessage(Object message)
+	{
+		LOGGER.info(message);
+	}
+
+
 	public static void LogDebug(String message)
 	{
 		LOGGER.debug(message);
