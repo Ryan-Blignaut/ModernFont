@@ -31,7 +31,7 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 loom {
-//    accessWidenerPath = file("src/main/resources/modernfont.accesswidener")
+    accessWidenerPath = file("src/main/resources/modern_font.accesswidener")
 
     runs {
         configureEach {

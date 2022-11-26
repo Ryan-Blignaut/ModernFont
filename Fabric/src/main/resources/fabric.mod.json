@@ -17,13 +17,15 @@
     ]
   },
   "mixins": [
-    "modern_font_common.mixins.json"
+    "modern_font_common.mixins.json",
+    "modern_font_fabric.mixins.json"
   ],
+  "accessWidener": "modern_font.accesswidener",
   "depends": {
     "fabricloader": ">=0.13.3",
     "fabric": "*",
     "minecraft": ">=1.18.2",
     "java": ">=17",
-    "forgeconfigapiport" : "*"
+    "forgeconfigapiport": "*"
   }
 }

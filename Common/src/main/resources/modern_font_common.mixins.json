@@ -7,8 +7,9 @@
   ],
   "client": [
     "FontManagerMixin",
-    "MinecraftMixin",
-    "RenderBuffersMixin"
+    "FontSetMixin",
+    "FontTextureAccessor",
+    "MinecraftAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

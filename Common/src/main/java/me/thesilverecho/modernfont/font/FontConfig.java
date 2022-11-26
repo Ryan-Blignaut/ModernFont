@@ -11,8 +11,15 @@ public class FontConfig
 {
 
 
-
 	public static final FontConfig CLIENT;
+	public static final ForgeConfigSpec clientSpec;
+
+	static
+	{
+		final Pair<FontConfig, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(FontConfig::new);
+		clientSpec = specPair.getRight();
+		CLIENT = specPair.getLeft();
+	}
 
 	public final ForgeConfigSpec.BooleanValue enabled;
 	public ForgeConfigSpec.BooleanValue testConfigSetting;
@@ -39,25 +46,14 @@ public class FontConfig
 
 	}
 
+	public static void registerConfig()
+	{
+	}
 
 	@SuppressWarnings("unchecked") // NightConfig's types are weird
 	public List<String> test()
 	{
 		return (List<String>) testFontList.get();
-	}
-
-	public static final ForgeConfigSpec clientSpec;
-
-	static
-	{
-		final Pair<FontConfig, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(FontConfig::new);
-		clientSpec = specPair.getRight();
-		CLIENT = specPair.getLeft();
-	}
-
-
-	public static void registerConfig()
-	{
 	}
 
 

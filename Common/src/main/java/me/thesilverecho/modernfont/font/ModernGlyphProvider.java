@@ -10,6 +10,7 @@ import it.unimi.dsi.fastutil.ints.IntSet;
 import net.minecraft.client.gui.font.glyphs.BakedGlyph;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.lwjgl.opengl.GL11;
 import org.lwjgl.stb.STBTTFontinfo;
 import org.lwjgl.stb.STBTruetype;
 import org.lwjgl.system.MemoryStack;
@@ -70,7 +71,7 @@ public class ModernGlyphProvider implements GlyphProvider
 
 
 			//TODO: remove this call
-			STBTruetype.stbtt_GetGlyphSDF(this.fontInfo, this.scaleFactor, glyphIndex, 5, (byte) 180, 36, w, h, x, y);
+			STBTruetype.stbtt_GetGlyphSDF(this.fontInfo, this.scaleFactor, glyphIndex, 5, (byte) 200, 200, w, h, x, y);
 
 			//Glyph has no width or height
 			if (w.get(0) == 0 || y.get(0) == 0) return null;

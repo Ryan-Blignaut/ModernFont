@@ -28,11 +28,9 @@ import java.util.*;
 public class ModernFontManager extends FontManager
 {
 	public static final ResourceLocation MODERN_FONT = new ResourceLocation("modernfont", "font");
-	private final FontSet missingFontSet;
-
-	private TextureManager textureManager;
-
 	final Map<ResourceLocation, FontSet> fontSets = Maps.newHashMap();
+	private final FontSet missingFontSet;
+	private TextureManager textureManager;
 	private final PreparableReloadListener reloadListener = new SimplePreparableReloadListener<Map<ResourceLocation, List<GlyphProvider>>>()
 	{
 
@@ -106,6 +104,14 @@ public class ModernFontManager extends FontManager
 		}
 	};
 
+	public ModernFontManager(TextureManager textureManager)
+	{
+		super(textureManager);
+		this.textureManager = textureManager;
+		this.missingFontSet = Util.make(new FontSet(textureManager, MISSING_FONT), (fontSet) -> fontSet.reload(Lists.newArrayList(new GlyphProvider[]{new AllMissingGlyphProvider()})));
+
+	}
+
 	@Override
 	public @NotNull Font createFont()
 	{
@@ -117,22 +123,11 @@ public class ModernFontManager extends FontManager
 		return new Font(($$0) -> this.fontSets.getOrDefault(MODERN_FONT, this.missingFontSet), false);
 	}
 
-
-	public ModernFontManager(TextureManager textureManager)
-	{
-		super(textureManager);
-		this.textureManager = textureManager;
-		this.missingFontSet = Util.make(new FontSet(textureManager, MISSING_FONT), (fontSet) -> fontSet.reload(Lists.newArrayList(new GlyphProvider[]{new AllMissingGlyphProvider()})));
-
-	}
-
 	@Override
 	public @NotNull PreparableReloadListener getReloadListener()
 	{
 		return this.reloadListener;
 	}
-
-
 
 
 }

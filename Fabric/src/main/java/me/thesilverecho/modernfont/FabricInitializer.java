@@ -1,6 +1,8 @@
 package me.thesilverecho.modernfont;
 
+import me.thesilverecho.modernfont.fabric.render.ModernFontRenderLayer;
 import me.thesilverecho.modernfont.font.FontConfig;
+import me.thesilverecho.modernfont.render.ModernFontRenderTypeHelper;
 import me.thesilverecho.modernfont.utils.FontLog;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -18,7 +20,10 @@ public class FabricInitializer implements ClientModInitializer
 	{
 		FontLog.LogMessage("Hello from Fabric!");
 		ModLoadingContext.registerConfig("modernfont", ModConfig.Type.CLIENT, clientSpec);
-
 		FontConfig.registerConfig();
+
+
+		ModernFontRenderTypeHelper.registerRenderLayers(ModernFontRenderLayer::getSdfFontShader, ModernFontRenderLayer::getSdfFontShader, ModernFontRenderLayer::getSdfFontShader);
+
 	}
 }

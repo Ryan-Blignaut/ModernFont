@@ -1,6 +1,8 @@
 package me.thesilverecho.modernfont;
 
 import me.thesilverecho.modernfont.font.FontConfig;
+import me.thesilverecho.modernfont.forge.render.ModernFontRenderLayer;
+import me.thesilverecho.modernfont.render.ModernFontRenderTypeHelper;
 import me.thesilverecho.modernfont.utils.FontLog;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -15,8 +17,9 @@ public class ForgeInitializer
 	{
 		FontLog.LogMessage("Hello from Forge!");
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, clientSpec);
-
 		FontConfig.registerConfig();
+		ModernFontRenderTypeHelper.registerRenderLayers(ModernFontRenderLayer::getSdfFontShader, ModernFontRenderLayer::getSdfFontShader, ModernFontRenderLayer::getSdfFontShader);
 	}
+
 
 }
